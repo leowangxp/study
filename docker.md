@@ -17,3 +17,10 @@
 ## 删除所有容器
 
     docker rm $(docker ps -qa)
+
+## 删除所有镜像
+
+    docker rmi $(docker images -qa)
+
+    无法删除时，删除该目录中的文件
+    rm /var/lib/docker/image/devicemapper/imagedb/content/sha256/
