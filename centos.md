@@ -25,3 +25,7 @@
 ## 修改机器名
 
     hostnamectl set-hostname <hostname>
+
+## 移动文件和目录，包含隐藏文件
+
+    mv * .[^.]* target/
