@@ -1,4 +1,4 @@
-# centos
+# Docker
 
 ## 修改国内镜像
 
@@ -9,6 +9,9 @@
     }
 
     systemctl reload docker
+
+## 制作镜像时不使用缓存
+    docker-compose build --no-cache
 
 ## 进入容器内部
 
