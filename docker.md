@@ -2,28 +2,55 @@
 
 ## 修改国内镜像
 
-    vim /etc/docker/daemon.json
+```shell
+vim /etc/docker/daemon.json
+```
 
-    {
-        "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
-    }
+```json
+{
+    "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
+}
+```
 
-    systemctl reload docker
+```shell
+ systemctl reload docker
+```
 
 ## 制作镜像时不使用缓存
-    docker-compose build --no-cache
+
+```shell
+docker-compose build --no-cache
+```
 
 ## 进入容器内部
 
-    docker-compose exec container_name bash
+```shell
+docker-compose exec container_name bash
+```
 
 ## 删除所有容器
 
-    docker rm $(docker ps -qa)
+```shell
+docker rm $(docker ps -qa)
+```
 
 ## 删除所有镜像
 
-    docker rmi $(docker images -qa)
+```shell
+docker rmi $(docker images -qa)
 
-    无法删除时，删除该目录中的文件
-    rm /var/lib/docker/image/devicemapper/imagedb/content/sha256/
+# 无法删除时，删除该目录中的文件
+rm /var/lib/docker/image/devicemapper/imagedb/content/sha256/
+```
+
+## 导入导出镜像
+
+```shell
+# 导出
+docker save -o images.tar image01:tag01 image02:tag02
+# 批量导出
+docker save -o images.tar $(docker images | grep -v REPOSITORY | grep -v '<none>' | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}')
+
+#导入
+docker load -i images.tar
+```
