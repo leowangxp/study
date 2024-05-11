@@ -8,7 +8,10 @@ vim /etc/docker/daemon.json
 
 ```json
 {
-    "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
+    "registry-mirrors": [
+        "https://dockerhub.azk8s.com",
+        "https://docker.mirrors.ustc.edu.cn"
+    ]
 }
 ```
 
@@ -53,4 +56,16 @@ docker save -o images.tar $(docker images | grep -v REPOSITORY | grep -v '<none>
 
 #导入
 docker load -i images.tar
+```
+
+## 避免容器自动退出
+
+```yml
+tty: true
+```
+
+## 构建新的镜像，并用新的镜像运行容器
+
+```shell
+docker-compose up [service] --build --force-recreate
 ```
