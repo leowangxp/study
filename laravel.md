@@ -49,3 +49,8 @@ copy from vendor and paste to: resources/views/vendor/telescope/layout.blade.php
         window.Telescope.path = telescopePath;
     </script>
     ```
+
+### sqlite 文件压缩
+```
+sqlite3 /srv/www/service/database/telescope.sqlite "vacuum;"
+```
