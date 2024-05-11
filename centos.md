@@ -63,6 +63,6 @@ mv * .[^.]* target/
 1. 验证
 
     ```shell
-    vim /etc/resov.conf
+    vim /etc/resolv.conf
     # 就可以看到添加的dns生效了
     ```
