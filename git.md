@@ -50,3 +50,9 @@ git reset --hard origin/master
     ```shell
     git push origin master
     ```
+
+1. cookiecutter 拉取特定 commit
+
+    ```shell
+    cookiecutter https://github.com/tiangolo/full-stack-fastapi-postgresql --checkout 30c722339b4fa6d4c2bd3deb7cca6fc3d9568f83
+    ```
