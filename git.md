@@ -51,8 +51,27 @@ git reset --hard origin/master
     git push origin master
     ```
 
-1. cookiecutter 拉取特定 commit
+## cookiecutter 拉取特定 commit
 
-    ```shell
-    cookiecutter https://github.com/tiangolo/full-stack-fastapi-postgresql --checkout 30c722339b4fa6d4c2bd3deb7cca6fc3d9568f83
-    ```
+```shell
+cookiecutter https://github.com/tiangolo/full-stack-fastapi-postgresql --checkout 30c722339b4fa6d4c2bd3deb7cca6fc3d9568f83
+```
+
+## git Bash 中设置 git 全局设置
+
+```shell
+git config --global user.name 用户名
+git config --global user.email 邮箱
+```
+
+## 设置让 VSCode 记住 Git 账号和密码
+
+```shell
+git config --global credential.helper store
+```
+
+## 忽略文件权限
+
+```shell
+git config core.filemode false
+```
