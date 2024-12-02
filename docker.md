@@ -19,6 +19,20 @@ vim /etc/docker/daemon.json
  systemctl reload docker
 ```
 
+```shell
+sudo tee /etc/docker/daemon.json <<EOF
+{
+    "registry-mirrors": [
+        "https://dockerhub.icu",
+        "https://docker.m.daocloud.io"
+    ]
+}
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
 ## 制作镜像时不使用缓存
 
 ```shell
@@ -69,3 +83,34 @@ tty: true
 ```shell
 docker-compose up [service] --build --force-recreate
 ```
+
+## Install Docker Engine on CentOS
+
+### Uninstall old versions
+
+```shell
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+```
+
+### Set up the repository
+
+```shell
+sudo yum install -y yum-utils
+# sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```
+
+### Install Docker Engine
+
+```shell
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+    If prompted to accept the GPG key, verify that the fingerprint matches 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35, and if so, accept it.
