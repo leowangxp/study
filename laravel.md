@@ -6,19 +6,19 @@
 
 ## 安装 laravel 项目
 
-```
+```shell
 composer create-project --prefer-dist laravel/laravel blog
 ```
 
 ## 修改 timezone
 
-```
+```php
 'timezone' => 'PRC'
 ```
 
 ## 安装 telescope
 
-```
+```shell
 composer require laravel/telescope
 php artisan telescope:install
 php artisan migrate
@@ -29,7 +29,7 @@ php artisan telescope:publish
 
 copy from vendor and paste to: resources/views/vendor/telescope/layout.blade.php
 
--   Original:
+- Original:
 
     ```html
     <!-- Global Telescope Object -->
@@ -38,7 +38,7 @@ copy from vendor and paste to: resources/views/vendor/telescope/layout.blade.php
     </script>
     ```
 
--   Updated:
+- Updated:
 
     ```html
     <!-- Global Telescope Object -->
@@ -51,6 +51,7 @@ copy from vendor and paste to: resources/views/vendor/telescope/layout.blade.php
     ```
 
 ### sqlite 文件压缩
-```
+
+```shell
 sqlite3 /srv/www/service/database/telescope.sqlite "vacuum;"
 ```
