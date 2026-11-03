@@ -8,7 +8,7 @@
 
 ## 修改国内镜像
 
-```shell
+```bash
 # 写入镜像加速配置
 sudo tee /etc/docker/daemon.json <<EOF
 {
@@ -29,7 +29,7 @@ sudo docker info | grep -E "Registry Mirrors|Cgroup Driver|Storage Driver"
 
 ## 制作镜像时常用参数
 
-```shell
+```bash
 docker compose build --no-cache --progress plain
 ```
 
@@ -44,19 +44,19 @@ docker compose build --no-cache --progress plain
 
 ## 进入容器内部
 
-```shell
+```bash
 docker-compose exec container_name bash
 ```
 
 ## 删除所有容器
 
-```shell
+```bash
 docker rm $ ( docker ps -qa )
 ```
 
 ## 删除所有镜像
 
-```shell
+```bash
 docker rmi $ ( docker images -qa )
 
 # 无法删除时，删除该目录中的文件
@@ -65,7 +65,7 @@ rm /var/lib/docker/image/devicemapper/imagedb/content/sha256/
 
 ## 导入导出镜像
 
-```shell
+```bash
 # 导出
 docker save -o images.tar image01:tag01 image02:tag02
 # 批量导出
@@ -76,7 +76,7 @@ docker load -i images.tar
 
 ## 镜像重命名
 
-```shell
+```bash
 docker tag id label:tag
 ```
 

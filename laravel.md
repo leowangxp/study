@@ -6,7 +6,7 @@
 
 ## 安装 laravel 项目
 
-```shell
+```bash
 composer create-project --prefer-dist laravel/laravel blog
 ```
 
@@ -18,7 +18,7 @@ composer create-project --prefer-dist laravel/laravel blog
 
 ## 安装 telescope
 
-```shell
+```bash
 composer require laravel/telescope
 php artisan telescope:install
 php artisan migrate
@@ -52,6 +52,6 @@ copy from vendor and paste to: resources/views/vendor/telescope/layout.blade.php
 
 ### sqlite 文件压缩
 
-```shell
+```bash
 sqlite3 /srv/www/service/database/telescope.sqlite "vacuum;"
 ```
