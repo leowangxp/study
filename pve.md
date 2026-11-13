@@ -74,10 +74,6 @@ pct enter ID
 pvesm add cifs nas100 --server 10.8.201.31 --share your_nas_storage_dir --username your_username --password your_password --smbversion 2.0
 ```
 
-pvesm add cifs smb-cat --server 192.168.91.9 --share pve --username nasadmin --password Smtl@2008 --smbversion 2.0
-
-pvesm add cifs smb-ikuai --server 192.168.91.1 --share pve --username client01 --password Client@01 --smbversion 2.0
-
 ## lxc 的 docker,外网可以访问
 
 iptables -P FORWARD ACCEPT
